@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单折叠效果</title>
+    <script src="http://www.w3school.com.cn/jquery/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("tr:odd:not(td table tr)").slideUp(1);
+            $("table table").slideUp(1);
+
+            var index=0;
+            $("a").each(function(){
+                $(this).attr("id",index++);
+            })
+            $("a").click(function(){
+
+                $(this).html(($(this).html()=="隐藏详情⬆")?"查看详情⬇":"隐藏详情⬆");
+                $(this).css("color",($(this).html()=="隐藏详情⬆")?"green":"orange");
+                $("a:[id!='"+$(this).attr("id")+"']").html("查看详情⬇");
+                $("a:[id!='"+$(this).attr("id")+"']").css("color","orange");
+                $("tr:odd:not(td table tr)").slideUp(1);
+                $("table table").slideUp(1);
+                if(($(this).html()=="隐藏详情⬆")){
+                    $("tr:odd:not(td table tr):eq("+$(this).attr("id")+")").slideDown();
+                    $("table table:eq("+$(this).attr("id")+")").slideDown();
+                }else{
+                    $("tr:odd:not(td table tr):eq("+$(this).attr("id")+")").slideUp();
+                    $("table table:eq("+$(this).attr("id")+")").slideUp();
+                }
+            })
+        })
+    </script>
+    <style>
+        table{
+            width: 100%;
+            border:1px solid gray;
+            border-collapse: collapse;
+        }
+        td{
+            border:1px solid gray;
+        }
+        a{
+            color: orange;
+            font-size: 14px;
+            text-shadow: 0px 0px 2px orange;
+            cursor: pointer;
+        }
+        table table{
+            font-size: 12px;
+            width: 98%;
+            margin-left: 1%;
+            margin-right: 1%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border:1px dashed black;
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>订单编号：E2342424234234234234</td>
+        <td>订单时间：2019-01-01 12：23：23</td>
+        <td>订单总价：2588元</td>
+        <td>订单状态：已评价</td>
+        <td><a>查看详情⬇</a></td>
+    </tr>
+    <tr>
+        <td colspan="5">
+            <table width="100%">
+                <tr>
+                    <td>大大牌辣条</td>
+                    <td>原价:19.8/每包</td>
+                    <td>5包</td>
+                    <td>折扣价:16.8</td>
+                    <td>产地：河南</td>
+
+                </tr><tr>
+                    <td>大大牌辣条</td>
+                    <td>原价:19.8/每包</td>
+                    <td>5包</td>
+                    <td>折扣价:16.8</td>
+                    <td>产地：河南</td>
+
+                </tr><tr>
+                    <td>大大牌辣条</td>
+                    <td>原价:19.8/每包</td>
+                    <td>5包</td>
+                    <td>折扣价:16.8</td>
+                    <td>产地：河南</td>
+
+                </tr><tr>
+                    <td>大大牌辣条</td>
+                    <td>原价:19.8/每包</td>
+                    <td>5包</td>
+                    <td>折扣价:16.8</td>
+                    <td>产地：河南</td>
+
+                </tr><tr>
+                    <td>大大牌辣条</td>
+                    <td>原价:19.8/每包</td>
+                    <td>5包</td>
+                    <td>折扣价:16.8</td>
+                    <td>产地：河南</td>
+
+                </tr><tr>
+                    <td>大大牌辣条</td>
+                    <td>原价:19.8/每包</td>
+                    <td>5包</td>
+                    <td>折扣价:16.8</td>
+                    <td>产地：河南</td>
+
+                </tr>
+
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td>订单编号：E2342424234234234234</td>
+        <td>订单时间：2019-01-01 12：23：23</td>
+        <td>订单总价：2588元</td>
+        <td>订单状态：已评价</td>
+        <td><a>查看详情⬇</a></td>
+    </tr>
+    <tr>
+        <td colspan="5">
+            <table width="100%">
+                <tr>
+                    <td>大大牌辣条</td>
+                    <td>原价:19.8/每包</td>
+                    <td>5包</td>
+                    <td>折扣价:16.8</td>
+                    <td>产地：河南</td>
+
+                </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr>
+
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td>订单编号：E2342424234234234234</td>
+        <td>订单时间：2019-01-01 12：23：23</td>
+        <td>订单总价：2588元</td>
+        <td>订单状态：已评价</td>
+        <td><a>查看详情⬇</a></td>
+    </tr>
+    <tr>
+        <td colspan="5">
+            <table width="100%">
+                <tr>
+                    <td>大大牌辣条</td>
+                    <td>原价:19.8/每包</td>
+                    <td>5包</td>
+                    <td>折扣价:16.8</td>
+                    <td>产地：河南</td>
+
+                </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr>
+
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td>订单编号：E2342424234234234234</td>
+        <td>订单时间：2019-01-01 12：23：23</td>
+        <td>订单总价：2588元</td>
+        <td>订单状态：已评价</td>
+        <td><a>查看详情⬇</a></td>
+    </tr>
+    <tr>
+        <td colspan="5">
+            <table width="100%">
+                <tr>
+                    <td>大大牌辣条</td>
+                    <td>原价:19.8/每包</td>
+                    <td>5包</td>
+                    <td>折扣价:16.8</td>
+                    <td>产地：河南</td>
+
+                </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr>
+
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td>订单编号：E2342424234234234234</td>
+        <td>订单时间：2019-01-01 12：23：23</td>
+        <td>订单总价：2588元</td>
+        <td>订单状态：已评价</td>
+        <td><a>查看详情⬇</a></td>
+    </tr>
+    <tr>
+        <td colspan="5">
+            <table width="100%">
+                <tr>
+                    <td>大大牌辣条</td>
+                    <td>原价:19.8/每包</td>
+                    <td>5包</td>
+                    <td>折扣价:16.8</td>
+                    <td>产地：河南</td>
+
+                </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr><tr>
+                <td>大大牌辣条</td>
+                <td>原价:19.8/每包</td>
+                <td>5包</td>
+                <td>折扣价:16.8</td>
+                <td>产地：河南</td>
+
+            </tr>
+
+            </table>
+
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

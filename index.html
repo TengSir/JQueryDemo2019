@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery-demo</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("a").click(function(){
+                alert("点击了这个按钮:"+$(this).html());
+            });
+            $("a").mouseover(function(){
+                $(this).css("text-shadow","0px 0px  5px red");
+            })
+            $("a").mouseout(function(){
+                $(this).css("text-shadow","");
+            })
+        })
+
+        //非侵入式的网页dom编程
+    </script>
+</head>
+<body>
+
+
+<a>首页</a>&nbsp;
+<a>产品</a>&nbsp;
+<a>客户</a>&nbsp;
+<a>联系我们</a>&nbsp;
+<a>关于</a>&nbsp;
+</body>
+</html>

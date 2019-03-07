@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery动画效果</title>
+    <script src="js/jquery-3.3.1.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("button:first").click(function(){
+                $("div").hide("fast",function(){
+                    alert('信息已经折叠');
+                });
+            })
+            $("button:eq(1)").click(function(){
+                $("div").show(5000,function(){
+                    alert("opened");
+                });
+            })
+
+            $("button:contains('淡入')").click(function(){
+                $("div").fadeIn();
+            })
+            $("button:contains('淡出')").click(function(){
+                $("div").fadeToggle();
+            })
+            $("button:contains('收放自如')").click(function(){
+                $("div").slideUp(4000).slideDown(4000);
+            })
+            $("button:contains('动画')").click(function(){
+                $("div").animate(
+                        {
+                            backgroundColor:"red",
+                            width:"300px",
+                            height:"300px",
+                            opacity:"0.2"
+                        }
+                )
+            })
+        })
+
+    </script>
+    <style>
+        div{
+            width: 200px;
+            height:200px;
+            border:1px solid red;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+<button>隐藏</button><button>显示</button>
+<button>淡入</button><button>淡出</button>
+<button>动画</button><button>收放自如</button>
+<div>
+    somde text
+</div>萨达萨达萨达萨达啊生生世世说
+</body>
+</html>

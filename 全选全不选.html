@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>全选全不选</title>
+		<script src="js/jquery-3.3.1.js"></script>
+	</head>
+
+	<body>
+		<button>全选</button>
+		<button>全不选</button>
+		<button>反选</button> <br /><br />
+
+		<label><input  type="checkbox" value="" />苹果 </label>
+		<label><input  type="checkbox" value="" />桃子 </label>
+		<label><input  type="checkbox" value="" />香蕉 </label>
+		<label><input  type="checkbox" value="" />梨 </label>
+		<label><input  type="checkbox" value="" />菠萝 </label>
+		<label><input  type="checkbox" value="" />橘子 </label>
+		<label><input  type="checkbox" value="" />橙子</label>
+		<label><input  type="checkbox" value="" />苹果 </label>
+
+		<script>
+			$("button:first").click(function(){
+				$("input").prop("checked","checked");
+			});
+			$("button:eq(1)").click(function(){
+				$("input").prop("checked","");
+			});
+			$("button:last").click(function(){
+				$("input").each(function(){
+					console.log($(this).prop("checked"));
+					if($(this).prop("checked")){
+						$(this).prop("checked","");
+					}else{
+						$(this).prop("checked","checked");
+					}
+				})
+			});
+
+		</script>
+	</body>
+
+</html>
