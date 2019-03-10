@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery版本的滚动轮播</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+
+    $(document).ready(function(){
+      setTimeout("move()",1000);
+    })
+        var left=0;
+        var count=1;
+        function move(){
+            left--;
+            $("img").each(function(){
+                var nowLeft=parseInt($(this).css("left").replace("px",""));
+                $(this).css("left",--nowLeft+"px");
+            })
+            if(left>-240*count){
+                setTimeout("move()",5);
+            }else{
+                $("img:eq("+(count-1)+")").css("left",240*(5-count)+"px");
+                count++;
+                if(count==6)
+                {
+                    count=1;
+                    left=0;
+                }
+                setTimeout("move()",1000);
+            }
+        }
+    </script>
+    <style>
+        img{
+            width: 240px;
+            height:170px;
+            margin: 0px;
+            float: left;
+            position:relative;
+            left:0px;
+            top:0px;
+        }
+        div{
+            width: 240px;
+            height:170px;
+            border:1px dotted gray;
+            display:inline-flex;
+            overflow:hidden;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <img src="img/1.jpg"/>
+    <img src="img/2.jpg"/>
+    <img src="img/3.jpg"/>
+    <img src="img/4.jpg"/>
+    <img src="img/5.jpg"/>
+</div>
+</body>
+</html>

@@ -22,26 +22,26 @@
     </style>
     <script>
         $(document).ready(function(){
-            $("td:even").css("background-image","url(js/s_l_g.png)");
-            $("td:odd").css("background-image","url(js/s_r_g.png)");
+            $("td:even").css("background-image","url(img/s_l_g.png)");
+            $("td:odd").css("background-image","url(img/s_r_g.png)");
 
             $("div").html("您的评分：0分");
 
             $("td").mouseenter(function(){
                   var nowIndex=$(this).index()+1;
-                  $("td:lt("+nowIndex+"):odd").css("background-image","url(js/s_r_o.png)");
-                  $("td:lt("+nowIndex+"):even").css("background-image","url(js/s_l_o.png)");
+                  $("td:lt("+nowIndex+"):odd").css("background-image","url(img/s_r_o.png)");
+                  $("td:lt("+nowIndex+"):even").css("background-image","url(img/s_l_o.png)");
                   $("div").html("您的评分："+(($(this).index()+1)*0.5)+"分");
             });
             $("table td").mouseleave(function(){
-                $("td:odd").css("background-image","url(js/s_r_g.png)");
-                $("td:even").css("background-image","url(js/s_l_g.png)");
+                $("td:odd").css("background-image","url(img/s_r_g.png)");
+                $("td:even").css("background-image","url(img/s_l_g.png)");
                 $("div").html("您的评分：0分");
             });
             $("td").click(function () {
                 var nowIndex=$(this).index()+1;
-                $("td:lt("+nowIndex+"):odd").css("background-image","url(js/s_r_o.png)");
-                $("td:lt("+nowIndex+"):even").css("background-image","url(js/s_l_o.png)");
+                $("td:lt("+nowIndex+"):odd").css("background-image","url(img/s_r_o.png)");
+                $("td:lt("+nowIndex+"):even").css("background-image","url(img/s_l_o.png)");
                 $("div").html("您的评分："+(($(this).index()+1)*0.5)+"分");
                 $("table,td").unbind("mouseleave mouseenter click");
             });

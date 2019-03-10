@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery选项卡切换</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("div.content:gt(0)").css("display","none");
+            $(".top").find("div:eq(0)").addClass("hover");
+            $(".top").find("div:eq(0)").css("border-bottom","none");
+            $(".top").find("div").mouseenter(function(){
+
+                $(this).parent().siblings().find("div").removeClass("hover");
+                $(this).addClass("hover");
+                $(".top").find("div").css("border-bottom","1px solid lightskyblue");
+                $(".top").find("div:eq("+$(this).parent().index()+")").css("border-bottom","none");
+
+                $(this).parent().parent().next().find(".content").css("display","none")
+                $(this).parent().parent().next().find(".content").eq($(this).parent().index()).css("display","block");
+
+            })
+        })
+    </script>
+    <style>
+        table{
+            border-collapse: collapse;
+            border-radius: 10px;
+        }
+        .top td{
+            width: 60px;
+            height:40px;
+            padding: 0px;
+            border:none;
+        }
+        .top td div{
+            margin: 0px;
+            width: 99%;
+            height:100%;
+            border:1px solid lightskyblue;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-size: 12px;
+            text-shadow: 0px 0px 5px deepskyblue;
+            text-align:center;
+            padding-top: 10px;
+        }
+        .hover{
+            cursor: pointer;
+            color:deepskyblue;
+            font-size: 14px;
+            font-weight: bold;
+            border-bottom: 0px ;
+            text-shadow: 0px 0px 5px deepskyblue;
+        }
+
+        td{
+
+            width: 240px;
+            height:150px;
+            border:1px solid deepskyblue;
+            border-top:none;
+            padding: 0px;
+            margin:0px;
+        }
+        .content{
+            margin:0px;
+            width: 100%;
+            height:100%;
+            font-size: 2cm;
+            text-shadow: 0px 0px 10px deepskyblue;
+            border:none;
+            text-wrap: avoid;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr class="top">
+        <td><div>选项卡1</div></td>
+        <td><div>选项卡2</div></td>
+        <td><div>选项卡3</div></td>
+        <td><div>选项卡4</div></td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <div class="content"><b style="color: red">1</b></div>
+            <div class="content"><b style="color: orange">2</b></div>
+            <div class="content"><b style="color: orangered">3</b></div>
+            <div class="content"><b style="color: green">4</b></div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

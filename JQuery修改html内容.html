@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            var  hotProducts=new Array("x","a","sfs");
+
+            $("a").click(function(){
+                console.log($("a").text());
+                console.log($("a").html());
+                $("a").text("<b>收起详情</b>");
+                console.log($("input").val());
+                $("input").val("点击了a");
+               // $("a").html("<b>收起详情</b>");
+            })
+
+            $("img").mouseover(function(){
+                $(this).attr("src","img/star-orange.png");
+            })
+            $("button:eq(0)").click(function(){
+                $("div").append("<span style='color: green;'>这是新添加的内容</span>");
+
+                $("<span style='color: green;'>这是新添加的内容</span>").appendTo("div");
+            })
+            $("button:eq(1)").click(function(){
+                $("div").prepend("<span style='color: purple;'>这是新添加的内容</span>");
+            })
+            $("button:eq(2)").click(function(){
+                $("div").after("<span style='color: blue;'>这是新添加的内容</span>");
+            })
+            $("button:eq(3)").click(function(){
+                $("div").before("<span style='color: orange;'>这是新添加的内容</span>");
+            })
+
+            $("#datas").css({"color":'red',"background-color":"blue"})
+        })
+
+    </script>
+</head>
+<body>
+<button>里面尾部append</button>
+<button>里面头部prepend</button>
+<button>外面尾部after</button>
+<button>外面头部before</button>
+<div style="width: 100px;height: 40px;border: 1px solid red;">内容区域</div>
+<img src="img/star-gray.png"/>
+<input type="text" value="这是输入用户名的框"/>
+<a><span style="color: red;">展开详情</span></a>
+</body>
+</html>

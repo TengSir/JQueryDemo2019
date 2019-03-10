@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://www.w3school.com.cn/jquery/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("input").keypress(function(){
+                console.log($("input").val())
+            })
+            $("div").css("background-color","pink").add("p").css("border","2px solid blue");
+            console.log("test");
+
+            $("p").each(function(a,obj){
+                console.log(a);
+                console.log($(obj).text())
+            })
+
+            $("#test").nextUntil("#sss");
+        })
+
+    </script>
+    <style>div{
+        border:1px solid red;
+
+    }
+    p{
+    background-color: orange;
+    }</style>
+</head>
+<body>
+<div id="test">div1</div>
+<div>div2</div>
+<div id="sss">div3</div>
+<div>div4</div>
+
+<p>p1</p>
+<p>p2</p>
+<p>p3</p>
+<p>p4</p>
+<p>p5</p>
+
+</body>
+</html>
